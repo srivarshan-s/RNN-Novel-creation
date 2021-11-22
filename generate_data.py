@@ -14,6 +14,7 @@ path_to_file = get_file(
         'shakespeare.txt', 
         'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt'
         )
+print("Data downloaded")
 
 # Read the data and decode it
 text = open(path_to_file, 'rb').read().decode(encoding='utf-8')
