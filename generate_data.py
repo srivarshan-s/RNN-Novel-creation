@@ -5,8 +5,6 @@ from tensorflow.keras.layers.experimental import preprocessing
 from tensorflow.keras.utils import get_file
 
 import numpy as np
-import os
-import time
 
 
 # Download the Shakespeare dataset
