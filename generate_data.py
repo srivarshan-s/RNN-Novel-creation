@@ -1,3 +1,5 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
 from tensorflow.keras.layers.experimental import preprocessing
 from tensorflow.keras.utils import get_file
@@ -55,10 +57,6 @@ def split_input_target(sequence):
 
 dataset = sequences.map(split_input_target)
 
-for input_example, target_example in dataset.take(1):
-    print("Input :", text_from_ids(input_example).numpy())
-    print("Target:", text_from_ids(target_example).numpy())
-
 # Batch size
 BATCH_SIZE = 64
 
@@ -71,3 +69,5 @@ dataset = (
     .shuffle(BUFFER_SIZE)
     .batch(BATCH_SIZE, drop_remainder=True)
     .prefetch(tf.data.experimental.AUTOTUNE))
+
+print("Data generated")
